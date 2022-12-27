@@ -1,6 +1,7 @@
 import { Request } from 'express';
 import passport from 'passport';
-import { Users } from '../models/UsersModel';
+import { verifyLoginErrors } from '../helpers/loginErrors';
+import { Users, Login } from '../models/UsersModel';
 // import { verifyLoginErrors } from '../helpers/loginErrors';
 
 // import { bcrypt } from 'bcrypt';
@@ -29,18 +30,6 @@ export const signIn = (req: Request, res: any) => {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const userLogin = async (req: Request, res: any) => {
-    // const login = new UsersModelScript.Login(req.body);
-    // await login.signIn();
-    // console.log('userLogin: ' + login.errors);
-    // await verifyLoginErrors(login.errors, req, res);
-    // if (login.errors.length === 0) {
-    //     req.session.user = login.user;
-    //     console.log('req session user declaring: ' + await req.session.user)
-    //     const objectRender = {
-    //         email: login.body.email
-    //     }
-    //     res.render('schedules', objectRender);
-    // }
     const userLogin = new Users({
         username: req.body.username,
         password: req.body.password
@@ -48,11 +37,9 @@ export const userLogin = async (req: Request, res: any) => {
 
     req.login(userLogin, function (err) {
         if (err) {
-            console.log('deu ruim no login: ' + err);
+            console.log('Login errors: ' + err);
         } else {
-            console.log('ta aqui? antes olha o users: ' + userLogin)
             passport.authenticate("local")(req, res, function () {
-                console.log('Indo pro schedules..')
                 res.redirect("/schedules");
             });
         }
@@ -68,20 +55,15 @@ export const signUp = (req: Request, res: any) => {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const userRegister = async (req: any, res: any) => {
-    // const login = new UsersModelScript.Login(req.body);
-    // await login.signUp();
-    // console.log('userRegister: ' + login.errors);
-    // await verifyLoginErrors(login.errors, req, res);
-    // if (login.errors.length === 0) {
-    //     const objectRender = {
-    //         email: login.body.email
-    //     }
-    //     res.render('schedules', objectRender);
-    // }
-    // const { email, password } = req.body;
-    // console.log('testando: ' + localUsername)
+    const login = new Login(req.body);
+    await login.signUp();
+    console.log('userRegister: ' + login.errors);
+    await verifyLoginErrors(login.errors, req, res);
+    console.log('errors register: ' + login.errors)
+    if (login.errors.length > 0) { return; }
+    const { username, password } = req.body;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    Users.register({ username: 'testeemail@gmail.com' }, 'testesenha', function (err, users) {
+    Users.register({ username: username }, password, function (err, users) {
         if (err) {
             console.log(err);
             res.redirect("/register");

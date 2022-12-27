@@ -6,7 +6,7 @@ import passportLocalMongoose from 'passport-local-mongoose';
 const findOrCreate = require('mongoose-findorcreate');
 
 const userSchema = new mongoose.Schema({
-    email: String,
+    username: String,
     password: String,
     googleId: String,
     secret: String
@@ -39,7 +39,6 @@ export class Login {
                 console.log('User found on the database.');
             } else {
                 this.errors.push('User does not exist.');
-                // console.log('teste aqui:' + this.errors);
                 return;
             }
         } catch (error) {
@@ -54,45 +53,25 @@ export class Login {
             console.log('Registrando...')
             if (await this.userExists()) {
                 console.log('User found on the database.');
-                this.errors.push('User found on the database, please insert a new one.');
+                this.errors.push('A user with the given email is already registered.');
                 return;
             } else {
-                this.user = await Users.create(this.body);
                 console.log('User created on database.')
                 return;
             }
 
         } catch (error) {
             console.log(error);
-            // if(this.user) this.errors.push('Usuário já existe.');
         }
     }
 
     async userExists() {
-        return await Users.findOne({ email: this.body.email });
+        return await Users.findOne({ username: this.body.username });
     }
 
     validate() {
-        this.cleanUp();
         // email needs to be valid
         // let's use validator (npm i validator) to check this
-        if (!validator.isEmail(this.body.email)) this.errors.push('Invalid email, please try again with a valid one.');
-    }
-
-    cleanUp() {
-        // this loop will make sure the inputs are strings
-        for (const key in this.body) {
-            if (typeof this.body[key] !== 'string') {
-                this.body[key] = '';
-            }
-        }
-
-        // if we use other kinds of security it is better to make sure the body will be distributed correctly
-        this.body = {
-            email: this.body.email,
-            password: this.body.password
-        }
+        if (!validator.isEmail(this.body.username)) this.errors.push('Invalid email, please try again with a valid one.');
     }
 }
-
-// export * from '../models/Users';
