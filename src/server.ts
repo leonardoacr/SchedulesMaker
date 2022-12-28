@@ -11,6 +11,6 @@ const startServer = async () => {
       console.log(`Server started on port ${port}`);
     });
   });
-}
+};
 
 startServer();

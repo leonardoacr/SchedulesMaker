@@ -4,7 +4,7 @@ const app = express();
 
 // Express and EJS
 app.locals.htmlDisplay = (html: string) =>
-    _.escape(html).replace(/\n/g, '<br>');
+  _.escape(html).replace(/\n/g, '<br>');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); //enable express to parse URL-encoded body i.e. info from HTML form
 app.set('views', ['./views/week-days', './views']);
@@ -21,20 +21,20 @@ import routes from './routes/userRoutes';
 import { middlewareGlobal } from './middlewares/messages';
 
 (async () => {
-    const dataBaseName = 'Schedule-Maker';
-    const connectDB = new DBConfig(dataBaseName).connectMongoDBCloud();
-    await connectDB;
-    const sessionOptions = await new DBConfig(dataBaseName).sessionOptionsFnc();
-    const options = await sessionOptions;
-    await app.use(options);
-    await app.use(passport.initialize());
-    await app.use(passport.session());
-    // console.log('olha isso: ' + await passport.session())
+  const dataBaseName = 'Schedule-Maker';
+  const connectDB = new DBConfig(dataBaseName).connectMongoDBCloud();
+  await connectDB;
+  const sessionOptions = await new DBConfig(dataBaseName).sessionOptionsFnc();
+  const options = await sessionOptions;
+  await app.use(options);
+  await app.use(passport.initialize());
+  await app.use(passport.session());
+  // console.log('olha isso: ' + await passport.session())
 
-    await app.use(flash());
-    // Call routes and middlewares
-    await app.use(middlewareGlobal);
-    await app.use(routes); // routes
+  await app.use(flash());
+  // Call routes and middlewares
+  await app.use(middlewareGlobal);
+  await app.use(routes); // routes
 })();
 
 export default app;

@@ -1,12 +1,10 @@
 import { Request, Response } from 'express';
-import { Login } from '../models/UsersModel';
 
 export const weekDays = async (req: Request, res: Response) => {
-    const { email, password } = req.body.email;
-    const objectRender = {
-        email: email
-    }
-    console.log('testeee:' + await email)
-    res.render('week-days/monday', objectRender);
-}
-
+  console.log('ta aqui em monday...' + req.session.userData);
+  const username = req.session.userData;
+  const objectRender = {
+    email: username
+  };
+  res.render('week-days/monday', objectRender);
+};

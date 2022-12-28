@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
 const HomeSchema = new mongoose.Schema({
-    stringEJS: { type: String, required: true },
-    description: String
+  stringEJS: { type: String, required: true },
+  description: String
 });
 
 const collectionName = 'Appointments';
