@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { verifyLoginErrors } from '../helpers/loginErrors';
 const errors: string[] = [];
 const middlewareLoginRequired = async (
   req: Request,
