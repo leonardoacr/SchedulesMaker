@@ -1,5 +1,34 @@
 <%- include('./../includes/header') -%> <%-
 include('./../includes/navSchedules') -%>
-<!-- Button or link that will trigger the modal -->
-
+<div class="container-schedules">
+  <div class="header-schedules">
+    <h1><%= selectedDay %></h1>
+  </div>
+  <%- include('./../includes/noteModalUpdate') -%> <%-
+  include('./../includes/noteModalCreate') -%>
+  <div class="container overflow-hidden container-day-schedule">
+    <button
+      class="btn"
+      type="button"
+      id="btn-modal-update"
+      data-bs-toggle="modal"
+      data-bs-target="#modalUpdate"
+      data-bs-whatever="@getbootstrap"
+      style="border: none; text-align: inherit; width: 100%"
+    >
+      <%- include('./../includes/noteContent') -%>
+    </button>
+    <div class="container-btn">
+      <button
+        class="btn btn-success"
+        id="btn-modal-create"
+        data-bs-toggle="modal"
+        data-bs-target="#modalCreate"
+        data-bs-whatever="@getbootstrap"
+      >
+        + Add Note
+      </button>
+    </div>
+  </div>
+</div>
 <%- include('./../includes/footer') -%>

@@ -1,42 +1,34 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 
 interface Schedule {
-  day: string;
-  notes: Array<{
-    time: string;
-    note: string;
+  days: Array<{
+    day: string;
+    notes: Array<{
+      time: string;
+      note: string;
+    }>;
   }>;
 }
 
-const scheduleSchema: Schema = new mongoose.Schema({
-  day: {
-    type: String,
-    required: true,
-  },
-  notes: [
+const schedulesSchema = new mongoose.Schema({
+  username: String,
+  schedules: [
     {
-      time: {
-        type: String,
-        required: true,
-      },
-      note: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+      days: [
+        {
+          day: String,
+          notes: [
+            {
+              time: String,
+              note: String
+            }
+          ]
+        }
+      ]
+    }
+  ]
 });
 
-const schedulesSchema: Schema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-  },
-  schedules: {
-    type: [scheduleSchema],
-    required: true,
-  },
-});
 
 const collectionName = 'Schedules';
 const Schedules = mongoose.model<SchedulesDocument, SchedulesModel>(collectionName, schedulesSchema);

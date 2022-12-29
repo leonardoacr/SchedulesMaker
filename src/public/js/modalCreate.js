@@ -38,6 +38,8 @@ function updateClock(periodCreate) {
     clockCreate = '01:00 AM';
     // console.log('oi: ' + clockCreate);
   } else {
+    hoursCreate.value = hoursCreate.value.replace(/^0+/, '');
+    minutesCreate.value = minutesCreate.value.replace(/^0+/, '');
     clockCreate =
       hoursCreate.value.padStart(2, '0') +
       ':' +
@@ -46,7 +48,6 @@ function updateClock(periodCreate) {
       periodCreate.toUpperCase();
   }
   // set the value of the clock-display form field
-  // console.log('teste clockCreate: ' + clockCreate);
   document.getElementById('clock-display-create-hidden').value = clockCreate;
   document.getElementById('clock-display-create').innerHTML = clockCreate;
 }

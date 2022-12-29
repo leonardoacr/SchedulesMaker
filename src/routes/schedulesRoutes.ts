@@ -13,6 +13,8 @@ router.get(
 );
 
 // week days schedules routes
+
+// monday
 router.get(
     '/schedules/week-days/monday',
     middlewareLoginRequired,
@@ -25,6 +27,7 @@ router.post(
     weekController.createNote
 );
 
+// tuesday
 router.get(
     '/schedules/week-days/tuesday',
     middlewareLoginRequired,
