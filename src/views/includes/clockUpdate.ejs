@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="cdard mdt-5">
+        <div class="card-body">
+          <!-- <form> -->
+          <div class="form-group">
+            <label for="hours">Hours:</label>
+            <input
+              type="number"
+              id="hoursUpdate"
+              name="hoursUpdate"
+              min="0"
+              max="12"
+              value="0"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="minutes">Minutes:</label>
+            <input
+              type="number"
+              id="minutesUpdate"
+              name="minutesUpdate"
+              min="0"
+              max="59"
+              value="0"
+              class="form-control"
+            />
+          </div>
+          <br />
+          <div
+            class="form-group"
+            style="width: 100%; display: flex; justify-content: center"
+          >
+            <div class="form-group form-check form-check-inline">
+              <input
+                type="radio"
+                id="am-update"
+                name="period"
+                value="am"
+                class="form-check-input"
+                checked
+              />
+              <label for="am" class="form-check-label">AM</label>
+            </div>
+            <div class="form-group form-check form-check-inline">
+              <input
+                type="radio"
+                id="pm-update"
+                name="period"
+                value="pm"
+                class="form-check-input"
+              />
+              <label for="pm" class="form-check-label">PM</label>
+            </div>
+          </div>
+          <!-- </form> -->
+          <div
+            id="clock-display-update"
+            class="fs-1 mt-4 text-center"
+            style="color: rgb(7, 112, 7)"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

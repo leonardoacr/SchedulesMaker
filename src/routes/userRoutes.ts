@@ -1,13 +1,9 @@
 import { Router } from 'express';
 import * as homeController from '../controllers/homeController';
 import * as loginController from '../controllers/loginController';
-import * as weekController from '../controllers/weekController';
-import * as schedulesController from '../controllers/schedulesController';
-
-import { middlewareLoginRequired } from '../middlewares/loginRequired';
 import {
-  middlewareRegisterAuth,
-  middlewareLoginAuth
+    middlewareRegisterAuth,
+    middlewareLoginAuth
 } from '../middlewares/auth';
 
 const router = Router();
@@ -25,19 +21,5 @@ router.post('/register', middlewareRegisterAuth, loginController.userRegister);
 
 // sign out routes
 router.get('/logout', loginController.signOut);
-
-// Schedules routes
-router.get(
-  '/schedules',
-  middlewareLoginRequired,
-  schedulesController.schedules
-);
-
-// week days schedules routes
-router.get(
-  '/schedules/week-days/monday',
-  middlewareLoginRequired,
-  weekController.weekDays
-);
 
 export default router;

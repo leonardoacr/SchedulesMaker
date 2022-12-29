@@ -4,20 +4,30 @@ include('./../includes/navSchedules') -%>
   <div class="header-schedules">
     <h1>MONDAY</h1>
   </div>
+  <%- include('./../includes/noteModalUpdate') -%> <%-
+  include('./../includes/noteModalCreate') -%>
   <div class="container overflow-hidden container-day-schedule">
-    <div class="wrapper">
-      <h3>03:00 AM</h3>
-      <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat
-          aliquam deserunt harum rem earum assumenda perspiciatis expedita.
-          Aliquid distinctio tenetur fugiat qui recusandae obcaecati voluptates.
-        </p>
-      </div>
-    </div>
+    <button
+      class="btn"
+      type="button"
+      id="btn-modal-update"
+      data-bs-toggle="modal"
+      data-bs-target="#modalUpdate"
+      data-bs-whatever="@getbootstrap"
+      style="border: none; text-align: inherit"
+    >
+      <%- include('./../includes/noteContent') -%>
+    </button>
     <div class="container-btn">
-      <button class="btn btn-success">+ Add Note</button>
+      <button
+        class="btn btn-success"
+        id="btn-modal-create"
+        data-bs-toggle="modal"
+        data-bs-target="#modalCreate"
+        data-bs-whatever="@getbootstrap"
+      >
+        + Add Note
+      </button>
     </div>
   </div>
 </div>

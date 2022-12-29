@@ -4,6 +4,13 @@ import validator from 'validator';
 import { verifyLoginErrors } from '../helpers/loginErrors';
 import { Users } from '../models/UsersModel';
 
+import winston from 'winston';
+
+const logger = winston.createLogger({
+  transports: [new winston.transports.Console()],
+  format: winston.format.json({ space: 2 })
+});
+
 let errors: string[] = [];
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let user: any = '';
@@ -20,18 +27,21 @@ export const middlewareLoginAuth = async (
   } // verify if there is any errors
   try {
     user = userExists(body);
+    // console.log('User: ' + await user);
     if (await user) {
       console.log('User found on the database.');
       const userLogin = new Users({
         username: body.username,
         password: body.password
       });
-
+      console.log('UserLogin: ' + userLogin)
       req.login(userLogin, function (err) {
         if (err) {
           console.log('Login errors: ' + err);
         } else {
-          passport.authenticate('local', function (err, user, info) {
+          passport.authenticate('local', function (err, user) {
+            logger.info('Authentication error:', err);
+            logger.info('Authenticated user:', user);
             if (err) {
               // An error occurred during authentication
               console.log('ta aqui? ' + err);
@@ -40,14 +50,10 @@ export const middlewareLoginAuth = async (
             if (!user) {
               // Authentication failed
               errors.push('Wrong password.');
-              // verifyLoginErrors(errors, req, res);
-              // return res.status(401).send(info);
               return verifyLoginErrors(errors, req, res);
             } else {
               next();
             }
-            // Authentication was successful
-            // next();
           })(req, res, next);
         }
       });

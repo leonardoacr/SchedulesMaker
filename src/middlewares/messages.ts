@@ -5,6 +5,7 @@ const middlewareGlobal = async (
   next: () => void
 ) => {
   console.log('Loading middleware messages..');
+  res.locals.errors = [];
   res.locals.errors = req.flash('errors');
   res.locals.user = req.session.user;
   next();

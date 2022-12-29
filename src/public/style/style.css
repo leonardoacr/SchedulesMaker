@@ -120,10 +120,24 @@ a:hover {
   transform-origin: 0 0;
 }
 
+.note-text {
+  color: rgb(34, 39, 46);
+}
+
 .container-btn {
   display: flex;
   width: 100%;
   justify-content: right;
+}
+
+.card {
+  color: black;
+  border: none;
+}
+
+#clock-display {
+  font-size: 80px;
+  font-weight: bold;
 }
 
 footer {

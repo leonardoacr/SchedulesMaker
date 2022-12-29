@@ -17,7 +17,9 @@ import passport from 'passport';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const flash = require('connect-flash');
 import DBConfig from './helpers/connectDB';
-import routes from './routes/userRoutes';
+import loginRoutes from './routes/userRoutes';
+import schedulesRoutes from './routes/schedulesRoutes'
+
 import { middlewareGlobal } from './middlewares/messages';
 
 (async () => {
@@ -34,7 +36,9 @@ import { middlewareGlobal } from './middlewares/messages';
   await app.use(flash());
   // Call routes and middlewares
   await app.use(middlewareGlobal);
-  await app.use(routes); // routes
+  await app.use(loginRoutes); // routes
+  await app.use(schedulesRoutes); // routes
+
 })();
 
 export default app;
