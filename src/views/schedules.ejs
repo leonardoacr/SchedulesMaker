@@ -7,52 +7,9 @@
   <!-- Grid section start -->
   <div class="container">
     <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
-      <div class="col">
-        <a href="/schedules/week-days/monday">
-          <div class="p-3 border container-day border-dark">
-            <h2 class="days-text">MONDAY</h2>
-          </div>
-        </a>
-      </div>
-      <div class="col">
-        <a href="/schedules/week-days/tuesday">
-          <div class="p-3 border container-day border-dark">
-            <h2 class="days-text">TUESDAY</h2>
-          </div>
-        </a>
-      </div>
-      <div class="col">
-        <div class="p-3 border container-day border-dark">
-          <h2 class="days-text">WEDNESDAY</h2>
-        </div>
-      </div>
-      <div class="col">
-        <div class="p-3 border container-day border-dark">
-          <h2 class="days-text">THURSDAY</h2>
-        </div>
-      </div>
-      <div class="col">
-        <div class="p-3 border container-day border-dark">
-          <h2 class="days-text">FRIDAY</h2>
-        </div>
-      </div>
-      <div class="col">
-        <div class="p-3 border container-day border-dark">
-          <h2 class="days-text">SATURDAY</h2>
-        </div>
-      </div>
-      <div class="col">
-        <div class="p-3 border container-day border-dark">
-          <h2 class="days-text">SUNDAY</h2>
-        </div>
-      </div>
-      <div class="col">
-        <div class="p-3 border container-day border-dark">
-          <h2 class="days-text">NOTES</h2>
-        </div>
-      </div>
+      <%- include('daysLoop') -%>
     </div>
+    <!-- Grid section end -->
   </div>
-  <!-- Grid section end -->
+  <%- include('includes/footer') -%>
 </div>
-<%- include('includes/footer') -%>

@@ -12,26 +12,26 @@ router.get(
     schedulesController.schedules
 );
 
-// week days schedules routes
-
-// monday
-router.get(
-    '/schedules/week-days/monday',
+router.post(
+    '/schedules',
     middlewareLoginRequired,
-    weekController.weekDaysMonday
+    schedulesController.getDay
+);
+
+// week days schedules routes
+// making dynamic routes because I'm lazy
+router.get(
+    '/schedules/week-days/:day',
+    middlewareLoginRequired,
+    weekController.weekDays
 );
 
 router.post(
-    '/schedules/week-days/monday',
+    '/schedules/week-days/:day',
     middlewareLoginRequired,
-    weekController.createNote
+    weekController.crudNote
 );
 
-// tuesday
-router.get(
-    '/schedules/week-days/tuesday',
-    middlewareLoginRequired,
-    weekController.weekDaysTuesday
-);
+
 
 export default router;

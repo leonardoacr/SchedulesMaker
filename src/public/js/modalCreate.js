@@ -10,18 +10,10 @@ const modalInput = document.getElementById('note-text-modal');
 const hoursCreate = document.getElementById('hoursCreate');
 const minutesCreate = document.getElementById('minutesCreate');
 
-let clockCreate = document.getElementById('clock-display-create').innerHTML;
+// let clockCreate = document.getElementById('clock-display-create');
+let clockCreate = '01:00 AM';
 
-if (modalCreate) {
-  modalCreate.addEventListener('shown.bs.modal', function () {
-    updateClock(periodCreate);
-    if (modalInput) {
-      modalInput.focus();
-    }
-  });
-}
-
-function updateClock(periodCreate) {
+const updateClockCreate = (periodCreate) => {
   if (hoursCreate.value > 12) {
     hoursCreate.value = 12;
   }
@@ -36,7 +28,6 @@ function updateClock(periodCreate) {
   }
   if (hoursCreate.value === '1' && minutesCreate.value === '0') {
     clockCreate = '01:00 AM';
-    // console.log('oi: ' + clockCreate);
   } else {
     hoursCreate.value = hoursCreate.value.replace(/^0+/, '');
     minutesCreate.value = minutesCreate.value.replace(/^0+/, '');
@@ -50,27 +41,36 @@ function updateClock(periodCreate) {
   // set the value of the clock-display form field
   document.getElementById('clock-display-create-hidden').value = clockCreate;
   document.getElementById('clock-display-create').innerHTML = clockCreate;
+};
+
+if (modalCreate) {
+  modalCreate.addEventListener('shown.bs.modal', function () {
+    updateClockCreate(periodCreate);
+    if (modalInput) {
+      modalInput.focus();
+    }
+  });
 }
 
-updateClock(periodCreate);
+updateClockCreate(periodCreate);
 
 const radioAm = document.querySelector('#periodCreate[value="am"]');
 const radioPm = document.querySelector('#periodCreate[value="pm"]');
 
 radioAm.addEventListener('change', () => {
   const updatedPeriodCreate = radioAm.value;
-  updateClock(updatedPeriodCreate);
+  updateClockCreate(updatedPeriodCreate);
 });
 
 radioPm.addEventListener('change', () => {
   const updatedPeriodCreate = radioPm.value;
-  updateClock(updatedPeriodCreate);
+  updateClockCreate(updatedPeriodCreate);
 });
 
 hoursCreate.addEventListener('change', () => {
-  updateClock(periodCreate);
+  updateClockCreate(periodCreate);
 });
 
 minutesCreate.addEventListener('change', () => {
-  updateClock(periodCreate);
+  updateClockCreate(periodCreate);
 });

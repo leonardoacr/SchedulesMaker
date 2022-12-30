@@ -9,20 +9,41 @@ export const updateScheduleInDB = async (username: string, day: string, time: st
         const dayExists = user.schedules.some(schedule => schedule.days.some(d => d.day === day));
         if (dayExists) {
             // If the day exists, update the schedule for the given day by adding a new note to the notes array
-            await Schedules.findOneAndUpdate(
-                { username, "schedules.days.day": day },
-                { $push: { "schedules.$[].days.$[].notes": { time, note } } }
-            );
+            const update = { $push: { "schedules.$[s].days.$[d].notes": { time, note } } };
+            const options = {
+                arrayFilters: [{ "s.days.day": day }, { "d.day": day }]
+            };
+            try {
+                await Schedules.findOneAndUpdate(
+                    { username },
+                    update,
+                    options
+                );
+                console.log('This day already has notes in the database, adding a new note to it...');
+            } catch (error) {
+                console.error(error);
+            }
+
         } else {
             // If the day does not exist, add a new day to the schedules array
-            await Schedules.findOneAndUpdate(
-                { username },
-                { $push: { "schedules.$[].days": { day, notes: [{ time, note }] } } }
-            );
+            const update = { $push: { "schedules.$[].days": { day, notes: [{ time, note }] } } };
+            const options = {
+                arrayFilters: [{ "s.days.day": day }]
+            };
+            try {
+                await Schedules.findOneAndUpdate(
+                    { username },
+                    update,
+                    options
+                );
+                console.log('This day does not exist in the database, adding it to the schedules array...')
+            } catch (error) {
+                console.error(error);
+            }
         }
     } else {
         // Schedule does not exist, create it
-        console.log('Schedule does not exist, creating it...');
+        console.log('Schedule does not exist for this user, creating it...');
         createScheduleInDB(username, day, time, note);
     }
 };

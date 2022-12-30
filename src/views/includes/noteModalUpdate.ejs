@@ -8,8 +8,11 @@
   <div class="modal-dialog">
     <div class="modal-content bg-dark">
       <form method="POST">
+        <input type="hidden" name="oldTime" value="<%= oldTime %>" />
+        <input type="hidden" name="oldNote" value="<%= oldNote %>" />
+        <input type="hidden" name="action" value="update" />
         <div class="modal-header">
-          <h5 class="modal-title" id="modalUpdateLabel">Update note</h5>
+          <h5 class="modal-title" id="modalUpdateLabel">Edit note</h5>
           <button
             type="button"
             class="btn-close"
@@ -18,16 +21,13 @@
           ></button>
         </div>
         <div class="modal-body">
-          <div class="mb-3">
-            <!-- <label for="recipient-name" class="col-form-label">Time:</label> -->
-            <!-- <input type="text" class="form-control" id="recipient-name" /> -->
-            <%-include('./../includes/clockUpdate') -%>
-          </div>
+          <div class="mb-3"><%-include('./../includes/clockUpdate') -%></div>
           <div class="mb-3">
             <label for="note-text-modal" class="col-form-label">Note:</label>
             <textarea
               class="form-control"
               id="note-text-modal"
+              name="noteTextUpdate"
               style="min-height: 150px"
             ></textarea>
           </div>

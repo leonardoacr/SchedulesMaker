@@ -2,7 +2,7 @@
 include('./../includes/navSchedules') -%>
 <div class="container-schedules">
   <div class="header-schedules">
-    <h1>MONDAY</h1>
+    <h1><%= selectedDay.toUpperCase() %></h1>
   </div>
   <%- include('./../includes/noteModalUpdate') -%> <%-
   include('./../includes/noteModalCreate') -%>
@@ -31,4 +31,6 @@ include('./../includes/navSchedules') -%>
     </div>
   </div>
 </div>
+<script src="/js/modalCreate.js"></script>
+<script src="/js/modalUpdate.js"></script>
 <%- include('./../includes/footer') -%>

@@ -4,13 +4,6 @@ import validator from 'validator';
 import { verifyLoginErrors } from '../helpers/loginErrors';
 import { Users } from '../models/UsersModel';
 
-import winston from 'winston';
-
-const logger = winston.createLogger({
-  transports: [new winston.transports.Console()],
-  format: winston.format.json({ space: 2 })
-});
-
 let errors: string[] = [];
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let user: any = '';
@@ -40,11 +33,9 @@ export const middlewareLoginAuth = async (
           console.log('Login errors: ' + err);
         } else {
           passport.authenticate('local', function (err, user) {
-            logger.info('Authentication error:', err);
-            logger.info('Authenticated user:', user);
             if (err) {
               // An error occurred during authentication
-              console.log('ta aqui? ' + err);
+              // console.log('ta aqui? ' + err);
               return res.status(500).send(err);
             }
             if (!user) {
@@ -86,7 +77,7 @@ export const middlewareRegisterAuth = async (
       const { username, password } = body;
       Users.register({ username: username }, password, function (err) {
         if (err) {
-          console.log('olha o erro do register aqui' + err);
+          console.log('Sign up error...' + err);
           res.redirect('/register');
         } else {
           passport.authenticate('local')(req, res, function () {

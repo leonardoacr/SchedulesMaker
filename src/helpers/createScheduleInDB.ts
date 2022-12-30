@@ -24,7 +24,7 @@ export const createScheduleInDB = async (username: string, day: string, time: st
 
     try {
         await mongooseSchedule.save();
-        console.log('createSchedule saved successfully!');
+        console.log('New schedule created successfully!');
     } catch (error) {
         console.log('Error while saving createSchedule: ' + error);
     }

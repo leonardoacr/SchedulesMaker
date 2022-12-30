@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <div class="cdard mdt-5">
+      <div class="card mdt-5 bg-dark" style="color: white">
         <div class="card-body">
           <!-- <form> -->
           <div class="form-group">
@@ -9,7 +9,6 @@
             <input
               type="number"
               id="hoursUpdate"
-              name="hoursUpdate"
               min="0"
               max="12"
               value="0"
@@ -21,7 +20,6 @@
             <input
               type="number"
               id="minutesUpdate"
-              name="minutesUpdate"
               min="0"
               max="59"
               value="0"
@@ -36,8 +34,8 @@
             <div class="form-group form-check form-check-inline">
               <input
                 type="radio"
-                id="am-update"
-                name="period"
+                id="periodUpdate"
+                name="periodUpdate"
                 value="am"
                 class="form-check-input"
                 checked
@@ -47,8 +45,8 @@
             <div class="form-group form-check form-check-inline">
               <input
                 type="radio"
-                id="pm-update"
-                name="period"
+                id="periodUpdate"
+                name="periodUpdate"
                 value="pm"
                 class="form-check-input"
               />
@@ -56,9 +54,15 @@
             </div>
           </div>
           <!-- </form> -->
+          <input
+            type="hidden"
+            id="clock-display-update-hidden"
+            name="clockDisplayUpdate"
+            value=""
+          />
           <div
             id="clock-display-update"
-            class="fs-1 mt-4 text-center"
+            class="fs-2 mt-4 text-center"
             style="color: rgb(7, 112, 7)"
           ></div>
         </div>
