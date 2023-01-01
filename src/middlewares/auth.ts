@@ -27,7 +27,7 @@ export const middlewareLoginAuth = async (
         username: body.username,
         password: body.password
       });
-      console.log('UserLogin: ' + userLogin)
+      console.log('UserLogin: ' + userLogin);
       req.login(userLogin, function (err) {
         if (err) {
           console.log('Login errors: ' + err);

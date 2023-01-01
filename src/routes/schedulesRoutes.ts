@@ -7,31 +7,25 @@ const router = Router();
 
 // Schedules routes
 router.get(
-    '/schedules',
-    middlewareLoginRequired,
-    schedulesController.schedules
+  '/schedules',
+  middlewareLoginRequired,
+  schedulesController.schedules
 );
 
-router.post(
-    '/schedules',
-    middlewareLoginRequired,
-    schedulesController.getDay
-);
+router.post('/schedules', middlewareLoginRequired, schedulesController.getDay);
 
 // week days schedules routes
 // making dynamic routes because I'm lazy
 router.get(
-    '/schedules/week-days/:day',
-    middlewareLoginRequired,
-    weekController.weekDays
+  '/schedules/week-days/:day',
+  middlewareLoginRequired,
+  weekController.weekDays
 );
 
 router.post(
-    '/schedules/week-days/:day',
-    middlewareLoginRequired,
-    weekController.crudNote
+  '/schedules/week-days/:day',
+  middlewareLoginRequired,
+  weekController.crudNote
 );
-
-
 
 export default router;

@@ -30,4 +30,4 @@ passport.deserializeUser(function (id, done) {
   });
 });
 
-export { Users }
+export { Users };

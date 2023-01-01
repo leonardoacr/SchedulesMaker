@@ -82,42 +82,66 @@ a:hover {
   background-color: rgba(0, 0, 0, 0);
 }
 
-.wrapper {
-  width: 100%;
-  min-height: 9rem;
+.note-content-box {
+  background-color: white;
   position: relative;
-  /* border: 2px solid orange; */
-  /* border-left: 40px solid rgb(104, 0, 0); */
+  width: 100%;
+  min-height: 7rem;
+  display: inline-block;
+  margin: 0.5rem;
   border-left: 40px solid rgb(1, 123, 62);
   border-radius: 5px;
   padding: 15px;
-  background-color: white;
-  color: rgba(0, 0, 0, 0.7);
-  font-size: small;
-  display: inline-block;
-  margin-bottom: 1rem;
+  z-index: 0;
+  /* background-color: aqua; */
 }
+
+.delete-button {
+  position: absolute;
+  width: 3rem;
+  height: 25%;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  color: purple;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin: 0;
+  z-index: 1;
+  /* background-color: black; */
+}
+
+.delete-button svg {
+  display: inline-block;
+}
+
+.note-content-box-wrapper {
+  cursor: pointer;
+  width: 100%;
+  min-height: 7rem;
+}
+
 .wrapper h3 {
   font-size: 1rem;
-  color: white;
+  color: rgb(255, 255, 255);
   text-transform: uppercase;
   letter-spacing: 3px;
   position: absolute;
   bottom: 0;
-  left: 0;
-  margin-left: -30px;
-  text-align: center;
-  vertical-align: middle;
-  -webkit-transform: rotate(270deg);
-  -moz-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
-  transform: rotate(270deg);
+  left: -30px;
   -webkit-transform-origin: 0 0;
   -moz-transform-origin: 0 0;
   -ms-transform-origin: 0 0;
   -o-transform-origin: 0 0;
   transform-origin: 0 0;
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
+  text-align: center;
+  vertical-align: middle;
 }
 
 .note-text {
@@ -142,4 +166,5 @@ a:hover {
 
 footer {
   text-align: center;
+  padding: 0.5rem;
 }

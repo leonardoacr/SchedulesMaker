@@ -29,9 +29,11 @@ const schedulesSchema = new mongoose.Schema({
   ]
 });
 
-
 const collectionName = 'Schedules';
-const Schedules = mongoose.model<SchedulesDocument, SchedulesModel>(collectionName, schedulesSchema);
+const Schedules = mongoose.model<SchedulesDocument, SchedulesModel>(
+  collectionName,
+  schedulesSchema
+);
 
 export { Schedules };
 

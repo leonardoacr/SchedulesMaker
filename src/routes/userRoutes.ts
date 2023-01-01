@@ -2,8 +2,8 @@ import { Router } from 'express';
 import * as homeController from '../controllers/homeController';
 import * as loginController from '../controllers/loginController';
 import {
-    middlewareRegisterAuth,
-    middlewareLoginAuth
+  middlewareRegisterAuth,
+  middlewareLoginAuth
 } from '../middlewares/auth';
 
 const router = Router();

@@ -1,10 +1,48 @@
 <% if(noteContentText.length > 0) { %> <% noteContentText.forEach((el, index) =>
 { %>
-<div id="note-content-box">
-  <div class="wrapper note-content" id="note-content">
-    <h3 id="note-time"><%= noteContentTime[index] %></h3>
-    <div class="note-text" id="note-text">
-      <p><%= noteContentText[index] %></p>
+<div class="note-content-box" id="note-content-box">
+  <form method="post">
+    <input
+      id="teste"
+      type="hidden"
+      name="noteTimeDelete"
+      value="<%= noteContentTime[index] %>"
+    />
+    <input
+      type="hidden"
+      name="noteTextDelete"
+      value="<%= noteContentText[index] %>"
+    />
+    <input type="hidden" name="action" value="delete" />
+    <button class="delete-button" type="submit">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </form>
+  <div
+    class="note-content-box-wrapper"
+    data-bs-toggle="modal"
+    data-bs-target="#modalUpdate"
+    data-bs-whatever="@getbootstrap"
+    data-note-time="<%= noteContentTime[index] %>"
+    data-note-text="<%= noteContentText[index] %>"
+  >
+    <div class="wrapper note-content" id="note-content">
+      <h3 class="note-time" id="note-time"><%= noteContentTime[index] %></h3>
+      <div class="note-text" id="note-text">
+        <p><%= noteContentText[index] %></p>
+      </div>
     </div>
   </div>
 </div>

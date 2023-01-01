@@ -5,20 +5,18 @@ include('./../includes/navSchedules') -%>
     <h1><%= selectedDay.toUpperCase() %></h1>
   </div>
   <%- include('./../includes/noteModalUpdate') -%> <%-
-  include('./../includes/noteModalCreate') -%>
+  include('./../includes/noteModalCreate') -%><%-
+  include('./../includes/noteModalClear') -%>
+
   <div class="container overflow-hidden container-day-schedule">
-    <button
-      class="btn"
-      type="button"
-      id="btn-modal-update"
-      data-bs-toggle="modal"
-      data-bs-target="#modalUpdate"
-      data-bs-whatever="@getbootstrap"
-      style="border: none; text-align: inherit; width: 100%"
-    >
       <%- include('./../includes/noteContent') -%>
     </button>
     <div class="container-btn">
+      <button id="modalClear" class="btn btn-danger" data-bs-toggle="modal"
+      data-bs-target="#modalClear"
+      data-bs-whatever="@getbootstrap" style="margin-right: 1rem">
+        Clear Notes
+      </button>
       <button
         class="btn btn-success"
         id="btn-modal-create"
@@ -33,4 +31,5 @@ include('./../includes/navSchedules') -%>
 </div>
 <script src="/js/modalCreate.js"></script>
 <script src="/js/modalUpdate.js"></script>
+<script src="/js/noteContent.js"></script>
 <%- include('./../includes/footer') -%>
