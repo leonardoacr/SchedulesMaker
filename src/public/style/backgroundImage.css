@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lobster+Two&family=Montserrat&display=swap');
+
+#upload-image-button {
+  display: none;
+}
+
+#upload-image-label {
+  cursor: pointer;
+}
+
+#image-url-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1.2em;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#save-image-button {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 1rem;
+}

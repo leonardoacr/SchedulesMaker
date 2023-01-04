@@ -16,7 +16,7 @@ export const middlewareLoginAuth = async (
   const body = req.body;
   validate(body);
   if (errors.length > 0) {
-    verifyLoginErrors(errors, req, res);
+    return verifyLoginErrors(errors, req, res);
   } // verify if there is any errors
   try {
     user = userExists(body);
@@ -65,7 +65,8 @@ export const middlewareRegisterAuth = async (
   const body = req.body;
   validate(body);
   if (errors.length > 0) {
-    verifyLoginErrors(errors, req, res);
+    console.log('teste: ' + errors)
+    return verifyLoginErrors(errors, req, res);
   } // verify if there is any errors
   try {
     console.log('Registrando...');
@@ -91,13 +92,15 @@ export const middlewareRegisterAuth = async (
   }
 };
 
-async function userExists(body: { username: unknown }) {
-  return await Users.findOne({ username: body.username });
+async function userExists(body: { username: string }) {
+  // console.log('oi?' + await Users.findOne({ username: body.username }, { _id: 0, __v: 0 }))
+  return await Users.findOne({ username: body.username }, { _id: 0, __v: 0 });
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function validate(body: any) {
   // email needs to be valid - I'll be using validator package to check this
-  if (!validator.isEmail(body.username))
+  if (!validator.isEmail(body.username)) {
     errors.push('Invalid email, please try again with a valid one.');
+  }
 }

@@ -19,6 +19,31 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="right-nav navbar-nav ms-auto">
         <li>
+          <a class="nav-link"role="button" 
+          data-bs-toggle="modal"
+          data-bs-target="#modalBackgroundImage"
+          data-bs-whatever="@getbootstrap"
+            ><div>
+              <img
+                src="/img/layout.png"
+                alt="Change background"
+                style="width: 1.5rem"
+              />
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" id="change-theme" role="button"
+            ><div>
+              <img
+                src="/img/theme.png"
+                alt="Change Theme"
+                style="width: 1.5rem"
+              />
+            </div>
+          </a>
+        </li>
+        <li>
           <a class="nav-link"><strong><%= email %></strong></a>
         </li>
         <li><a class="nav-link" href="/logout" role="button">Sign Out</a></li>
@@ -27,4 +52,6 @@
     </div>
   </ul>
 </div>
+<%- include('./../background-image/backgroundImageModal') -%>
+
 <!-- Navbar section end -->

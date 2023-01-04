@@ -8,6 +8,12 @@ export const createScheduleInDB = async (
 ): Promise<void> => {
   const newSchedule = {
     username,
+    config: [
+      {
+        backgroundImage: '',
+        backgroundTheme: ''
+      }
+    ],
     schedules: [
       {
         days: [

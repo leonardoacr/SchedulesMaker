@@ -1,6 +1,10 @@
 import _ from 'lodash'; // we need this to break lines automatically when inserting the strings on EJS
 import express from 'express';
+import cors from 'cors';
+
 const app = express();
+
+app.use(cors()); // enable cors
 
 // Express and EJS
 app.locals.htmlDisplay = (html: string) =>

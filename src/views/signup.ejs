@@ -3,7 +3,7 @@
 <section class="vh-80 gradient-custom">
   <div class="container py-5 h-80">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+      <div class="col-12 col-md-8 col-6 col-xl-5">
         <div class="card bg-dark text-white" style="border-radius: 1rem">
           <div class="card-body p-5 text-center">
             <div class="mb-md-5 mt-md-4 pb-5">
@@ -18,25 +18,38 @@
                     type="email"
                     id="typeEmailX"
                     name="username"
-                    class="form-control form-control-lg"
+                    class="form-control form-control"
                   />
                   <label class="form-label" for="typeEmailX">Email</label>
                 </div>
 
                 <div class="form-outline form-white mb-4">
+                  
+                  <div class="password-wrap">
+                    <input type="password" id="password" name="password" class="form-control form-control" min="3" max="50" autocomplete="on" required />
+                      <button type="button" id="toggle-password-visibility"><img id="show-password-icon" src="/img/visibility_off.svg" alt="Show Password"></button>
+                  </div>
+
+                  <label class="form-label" for="password" autocomplete="on">Password</label>
+                </div>
+                
+                <div class="form-outline form-white mb-4">
+
                   <input
                     type="password"
-                    id="typePasswordX"
-                    name="password"
-                    class="form-control form-control-lg"
+                    id="confirm-password"
+                    name="confirm-password"
+                    class="form-control form-control"
                     minlength="3"
                     maxlength="50"
+                    autocomplete="on"
                     required
                   />
-                  <label class="form-label" for="typePasswordX">Password</label>
+                  <label class="form-label" for="confirm-password" autocomplete="on">Confirm Password</label>
+                  <div><p id="checkPasswordMatchMessage"></p></div>
                 </div>
 
-                <button class="btn btn-outline-light btn-lg px-5" type="submit">
+                <button class="btn btn-outline-light btn px-5" type="submit" id="registerButton" style="display: none;">
                   Register
                 </button>
               </form>

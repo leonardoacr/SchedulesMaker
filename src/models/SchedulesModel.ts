@@ -1,17 +1,30 @@
 import mongoose from 'mongoose';
 
-interface Schedule {
-  days: Array<{
-    day: string;
-    notes: Array<{
-      time: string;
-      note: string;
-    }>;
-  }>;
+interface SchedulesDocument extends mongoose.Document {
+  username: string;
+  config: {
+    backgroundImage: string;
+    backgroundTheme: string;
+  }[];
+  schedules: {
+    days: {
+      day: string;
+      notes: {
+        time: string;
+        note: string;
+      }[];
+    }[];
+  }[];
 }
 
 const schedulesSchema = new mongoose.Schema({
   username: String,
+  config: [
+    {
+      backgroundImage: String,
+      backgroundTheme: String,
+    },
+  ],
   schedules: [
     {
       days: [
@@ -20,26 +33,19 @@ const schedulesSchema = new mongoose.Schema({
           notes: [
             {
               time: String,
-              note: String
-            }
-          ]
-        }
-      ]
-    }
-  ]
+              note: String,
+            },
+          ],
+        },
+      ],
+    },
+  ],
 });
 
 const collectionName = 'Schedules';
-const Schedules = mongoose.model<SchedulesDocument, SchedulesModel>(
+const Schedules = mongoose.model<SchedulesDocument, mongoose.Model<SchedulesDocument>>(
   collectionName,
   schedulesSchema
 );
 
 export { Schedules };
-
-export interface SchedulesDocument extends mongoose.Document {
-  username: string;
-  schedules: Schedule[];
-}
-
-export type SchedulesModel = mongoose.Model<SchedulesDocument>;

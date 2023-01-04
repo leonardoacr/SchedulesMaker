@@ -1,4 +1,5 @@
 import { Schedules } from '../models/SchedulesModel';
+import { createScheduleInDB } from './createScheduleInDB';
 
 let indexDay: number;
 
@@ -68,5 +69,7 @@ export const readNoteContent = async (username: any, dayInput: string) => {
     return organizedNotes;
   } else {
     console.log('user not found, empty schedule');
+    // Creating new schedule for the user
+    await createScheduleInDB(username, 'monday', '01:00 AM', 'My First Note');
   }
 };

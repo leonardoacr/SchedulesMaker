@@ -1,7 +1,9 @@
 import { Request, Response } from 'express';
+import { readNoteContent } from '../helpers/readNoteContent';
 
 export const schedules = async (req: Request, res: Response) => {
   const username = req.session.userData;
+  await readNoteContent(username, 'monday');
   const objectRender = {
     email: username
   };
@@ -9,7 +11,9 @@ export const schedules = async (req: Request, res: Response) => {
 };
 
 export const getDay = async (req: Request, res: Response) => {
-  console.log('oi ta aqui? ' + req.body.day);
   const day = req.body.day;
   res.redirect(`/schedules/week-days/${day}`);
 };
+
+
+

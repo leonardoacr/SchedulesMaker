@@ -42,7 +42,7 @@ export const updateScheduleInDB = async (
           console.error(error);
         }
       } else {
-        console.log('time already exists on this day');
+        console.log('Time already exists on this day');
       }
     } else {
       // If the day does not exist, add a new day to the schedules array

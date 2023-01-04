@@ -1,0 +1,29 @@
+.header-schedules {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.row {
+  margin: 1rem 0 1rem 0;
+}
+.border-dark {
+  --bs-border-opacity: 0 !important;
+}
+
+.container-day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(79, 86, 96, 0.5);
+  border: 16px solid;
+  border-radius: 8px;
+  height: 10rem;
+}
+
+.container-day:hover {
+  background-color: rgba(101, 107, 117, 0.5);
+  border-color: white;
+  transform: scale(
+    1.05
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
