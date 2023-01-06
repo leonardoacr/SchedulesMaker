@@ -12,6 +12,9 @@ const router = Router();
 // Home routes
 router.get('/', homeController.index);
 
+router.get('/about', homeController.about);
+
+
 // sign in routes
 router.get('/login', loginController.signIn);
 router.post('/login', middlewareLoginAuth, loginController.userLogin);

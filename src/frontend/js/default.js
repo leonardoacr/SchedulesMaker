@@ -26,6 +26,7 @@ export function defaultThemeGlobal(imageUrl, currentColor) {
   if (typeof currentColor === 'undefined' || currentColor === 'none') {
     // The background has no image, so set the background-color of the body and html elements to the default color
     currentColor = 'black';
+    body.style.backgroundColor = 'rgb(34, 39, 46)';
     body.style.color = 'white';
     modalTextElements.forEach((element) => {
       element.style.color = 'white';

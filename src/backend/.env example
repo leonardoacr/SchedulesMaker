@@ -1,1 +1,3 @@
 CONNECTIONSTRING=mongodb+srv:// -- PASTE PART OF YOUR CONNECTION STRING HERE -- .mongodb.net/name?retryWrites=true&w=majority
+CLIENT_ID= -- to get these keys you need to create a project on Google Cloud --
+CLIENT_SECRET= -- to get these keys you need to create a project on Google Cloud --

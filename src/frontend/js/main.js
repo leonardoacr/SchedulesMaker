@@ -14,14 +14,17 @@ const main = async () => {
   if (typeof currentColor === 'undefined') {
     currentColor = 'black';
   }
+  defaultThemeGlobal(imageUrl, currentColor);
 
   if (
     currentPage !== '/login' &&
     currentPage !== '/' &&
-    currentPage !== '/register'
+    currentPage !== '/register' &&
+    currentPage !== '/about'
   ) {
     // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     let { imageUrl, currentColor } = await getDataGlobal();
+
     defaultThemeGlobal(imageUrl, currentColor);
     // non-priorities
     backgroundImageGlobal();

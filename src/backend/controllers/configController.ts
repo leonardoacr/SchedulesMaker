@@ -14,17 +14,17 @@ export const getConfig = async (req: Request, res: Response) => {
   const username = req.session.userData as unknown as string;
   const backgroundImage = req.body.backgroundImage;
   const backgroundTheme = req.body.backgroundTheme;
-  console.log(
-    'Getting data from frontend: ' + backgroundImage + ' ' + backgroundTheme
-  );
+  // console.log(
+  //   'Getting data from frontend: ' + backgroundImage + ' ' + backgroundTheme
+  // );
   const filter = { username: username };
   const update = { $set: { config: { backgroundImage, backgroundTheme } } };
 
   try {
     await Schedules.findOneAndUpdate(filter, update);
-    console.log(
-      'Updated config data for user: ' + backgroundImage + ' ' + backgroundTheme
-    );
+    // console.log(
+    //   'Updated config data for user: ' + backgroundImage + ' ' + backgroundTheme
+    // );
     res.json({ success: true });
   } catch (error) {
     console.error(error);
