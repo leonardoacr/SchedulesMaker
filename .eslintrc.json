@@ -1,9 +1,15 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2022": true,
+    "node": true
   },
-  "overrides": [],
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "extends": ["eslint:recommended"]
+    }
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -17,6 +23,6 @@
     "prettier"
   ],
   "rules": {
-    "no-console": 0 // Remember, this means error!
+    "no-console": 0
   }
 }

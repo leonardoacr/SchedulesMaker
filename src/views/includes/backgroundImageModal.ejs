@@ -1,0 +1,51 @@
+<div
+  class="modal fade"
+  id="modalBackgroundImage"
+  tabindex="-1"
+  aria-labelledby="modalBackgroundImageLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark">
+      <form method="POST">
+        <input type="hidden" name="action" value="clearNotes" />
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">Change the background</h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            style="color:white"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          You can change the background image with three options:
+          <ul>
+            <li>Upload your own image (keep in mind this option will only be stored for the session)</li>
+            <li>Get a random image</li>
+            <li>Search a image on Unsplash and paste the link here</li>
+        </div>
+        <div class="modal-footer">
+          <label class="btn btn-success" id="upload-image-label" for="upload-image-button">
+            Upload
+            <input id="upload-image-button" type="file" accept="image/*"/>
+          </label>
+          <button type="button" class="btn btn-success" id="random-image-button">
+            Random
+          </button>
+          <button type="button" class="btn btn-success" id="unsplash-image-button">
+            <a href="http://unsplash.com/">Unsplash</a>
+          </button>
+          <button type="button" class="btn btn-danger" id="reset-image-button">
+            <a href="http://unsplash.com/">Reset</a>
+          </button>
+        </div>
+      </form>
+    <div id="loadingImage"></div>
+    </div>
+  </div>
+</div>
+<script type="module" src="/js/theme.bundle.js"></script>

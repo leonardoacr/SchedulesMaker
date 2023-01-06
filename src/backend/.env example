@@ -1,0 +1,1 @@
+CONNECTIONSTRING=mongodb+srv:// -- PASTE PART OF YOUR CONNECTION STRING HERE -- .mongodb.net/name?retryWrites=true&w=majority
