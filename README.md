@@ -70,7 +70,7 @@ $ cd SchedulesMaker
 # Install node dependencies
 $ npm i
 
-# for the next three commands you can just hit npm start and it will run everything in paralell, otherwise keep following:
+# for the next three commands you can just type "npm start-render" and it will run everything at once, otherwise keep following:
 # Run tscp to copy non-typescript files to "dist" folder (keep -w if you think about changing anything)
 $ tscp -w
 
@@ -81,7 +81,7 @@ $ tsc -w
 $ npm run webpack
 
 # Now go to the dist folder
-$ cd dist
+$ cd dist/backend
 
 # Put the server to run on localhost:3000 (use nodemon to keep it running or node to only run one time)
 $ nodemon server.js
