@@ -32,6 +32,8 @@ passport.deserializeUser(function (id, done) {
 const GOOGLE_CLIENT_ID = process.env.CLIENT_ID as string;
 const GOOGLE_CLIENT_SECRET = process.env.CLIENT_SECRET as string;
 
+console.log('ENV TESTS: ' + GOOGLE_CLIENT_ID + ' ' + GOOGLE_CLIENT_SECRET);
+
 passport.use(new GoogleStrategy({
   clientID: GOOGLE_CLIENT_ID,
   clientSecret: GOOGLE_CLIENT_SECRET,
