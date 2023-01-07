@@ -1,4 +1,4 @@
-<h1 align="center">Schedule Maker</h1>
+<h1 align="center"><a href="https://schedules-maker.onrender.com/">Schedule Maker</a></h1>
 Everyone make a "todo list" in the beginning, so I made an effort to bring this exercise to another level - A full web app for Schedule Maker with a functional login-register and notes organization for each day of the week, and you can even customize it changing the theme and background! <a href="https://schedules-maker.onrender.com/">Live Website</a>
 
 <div align="center">
