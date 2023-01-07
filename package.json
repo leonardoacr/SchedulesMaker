@@ -13,7 +13,8 @@
     "lint-and-fix": "eslint . --ext .ts --fix",
     "webpack": "webpack -w",
     "start": "npm-run-all -parallel webpack typescript cp-non-typescript",
-    "start-render": "tsc & tscp & webpack & ls & cd ./dist/backend & node server.js",
+    "build-render": "npm install & tsc & tscp",
+    "start-render": "ls & cd ./dist/backend & node server.js",
     "lint-prettier": "npm-run-all -p lint-and-fix prettier-format"
   },
   "author": "Leonardo R",
