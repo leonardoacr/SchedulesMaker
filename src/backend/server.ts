@@ -1,5 +1,8 @@
 import * as dotenv from 'dotenv';
-dotenv.config();
+import * as path from 'path';
+
+dotenv.config({ path: path.resolve(__dirname, '..', '..', '.env') });
+console.log('ENV locate test: ' + path.resolve(__dirname, '..', '..', '.env'))
 
 import app from './app';
 
