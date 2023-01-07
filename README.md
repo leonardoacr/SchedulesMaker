@@ -15,7 +15,7 @@ Everyone make a "todo list" in the beginning, so I made an effort to bring this 
 ## :camera: Overview
 <div align="center" >
   <img src="./Github/desktop.gif" alt="demo-web" height="425">
-  <img src="./Github/mobile.gif" alt="demo-mobile" height="425">
+  <img src="./Github/mobile.gif" alt="demo-mobile" height="425">   
 </div>
 
 <div id="features">
