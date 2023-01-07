@@ -21,7 +21,7 @@ export const weekDays = async (req: Request, res: Response) => {
     noteContentTime: noteContentTime,
     selectedDay: dayInput
   };
-  res.render('week-days/day', objectRender);
+  res.render('day', objectRender);
 };
 
 export const crudNote = async (req: Request, res: Response) => {

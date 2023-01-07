@@ -1,15 +1,15 @@
-<%- include('./../includes/header') -%> <%-
-include('./../includes/navSchedules') -%>
+<%- include('./includes/header') -%> <%-
+include('./includes/navSchedules') -%>
 <div class="container-schedules">
   <div class="header-schedules">
     <h1><%= selectedDay.toUpperCase() %></h1>
   </div>
-  <%- include('./../includes/noteModalUpdate') -%> <%-
-  include('./../includes/noteModalCreate') -%><%-
-  include('./../includes/noteModalClear') -%>
+  <%- include('./includes/noteModalUpdate') -%> <%-
+  include('./includes/noteModalCreate') -%><%-
+  include('./includes/noteModalClear') -%>
 
   <div class="container overflow-hidden container-day-schedule">
-      <%- include('./../includes/noteContent') -%>
+      <%- include('./includes/noteContent') -%>
     </button>
     <div class="container-btn">
       <button id="modalClear" class="btn btn-danger" data-bs-toggle="modal"
@@ -30,4 +30,4 @@ include('./../includes/navSchedules') -%>
   </div>
 </div>
 <script src="/js/day.bundle.js"></script> 
-<%- include('./../includes/footer') -%>
+<%- include('./includes/footer') -%>

@@ -11,9 +11,24 @@ app.locals.htmlDisplay = (html: string) =>
   _.escape(html).replace(/\n/g, '<br>');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); //enable express to parse URL-encoded body i.e. info from HTML form
-app.set('views', ['./../views/week-days', './../views']);
+
+// require node:path to replace \ to / into dirname
+import path from 'node:path';
+
+// Taking __dirname and turning to string so we can change /public directory
+const pathDIR = __dirname;
+const formatDIR = pathDIR.split(path.sep).join('/');
+console.log(formatDIR.replace('/backend', 'views'));
+const viewsPath = formatDIR.replace('backend', 'views');
+const publicPath = formatDIR.replace('backend', 'public');
+
+console.log("Views Path check: " + viewsPath)
+console.log('Public Path check: ' + publicPath);
+// setting up EJS
+app.set('views', viewsPath);
+// app.set('views', ['./../views/week-days', './../views']);
 app.set('view engine', 'ejs'); // setting up EJS
-app.use(express.static('../public')); // define public and static folder (js and css files)
+app.use(express.static(publicPath)); // define public and static folder (js and css files)
 
 // Database config.
 import passport from 'passport';
