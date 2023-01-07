@@ -13,6 +13,10 @@ Everyone make a "todo list" in the beginning, so I made an effort to bring this 
 <br>
 
 ## :camera: Overview
+<div align="center" >
+  <img src="./Github/desktop.gif" alt="demo-web" height="350">
+  <img src="./Github/mobile.gif" alt="demo-mobile" height="350">
+</div>
 
 <div id="features">
   <h2>:star: Features</h2>
