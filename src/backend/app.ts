@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true })); //enable express to parse URL-encoded body i.e. info from HTML form
 
 // require node:path to replace \ to / into dirname
-import path from 'node:path';
+import path from 'path';
 
 // Taking __dirname and turning to string so we can change /public directory
 const pathDIR = __dirname;
