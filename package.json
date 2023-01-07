@@ -14,7 +14,7 @@
     "webpack": "webpack -w",
     "start": "npm-run-all -p webpack typescript cp-non-typescript",
     "build-render": "npm install && tsc && tscp && webpack",
-    "start-render": "ls & node ./dist/backend/server.js",
+    "start-render": "ls dist & node ./dist/backend/server.js",
     "lint-prettier": "npm-run-all -p lint-and-fix prettier-format"
   },
   "author": "Leonardo R",
